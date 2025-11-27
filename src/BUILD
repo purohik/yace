@@ -18,3 +18,9 @@ cc_binary(
     srcs = ["main.cpp"],
     deps = [],
 )
+
+cc_library(
+    name = "game",
+    srcs = ["game/Board.cpp"],
+    hdrs = ["game/Board.h"],
+)
