@@ -1,0 +1,5 @@
+module(
+    name = "yace",
+    version = "1.0",
+    bazel_compatibility = [">=8.0.0"],
+)
