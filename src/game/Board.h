@@ -13,7 +13,7 @@ class Board {
 public:
 	Board();
 
-	void init();
+	void initialize_pieces();
 	void move();
-	void debug() const;
+	void print_board();
 };

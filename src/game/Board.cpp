@@ -1,7 +1,3 @@
-//
-// Created by puro on 27/11/25.
-//
-
 #include "Board.h"
 
 #include <iostream>
@@ -16,7 +12,7 @@ Board::Board() {
 		board_[i].reserve(8);
 	}
 
-	init();
+	initialize_pieces();
 
 	std::println("Game initiazed.");
 }
@@ -27,23 +23,33 @@ void Board::move() {
 }
 
 
-void Board::init() {
+void Board::initialize_pieces() {
 	// pawns
 	for (int i = 0; i < 8; ++i) {
-		std::shared_ptr pawn = std::make_shared<Piece>(
+		board_[1][i] = std::make_shared<Piece>(
 			Side::WHITE,
 			PieceType::PAWN,
 			std::make_pair(1, i),
-			""
-		);
-		board_[1][i] = pawn;
+			static_cast<char>('A' + i) + std::to_string(2));
+
+		board_[6][i] = std::make_shared<Piece>(
+			Side::BLACK,
+			PieceType::PAWN,
+			std::make_pair(6, i),
+			static_cast<char>('A' + i) + std::to_string(7));
 	}
 }
 
-void Board::debug() const {
+
+void Board::print_board() {
 	for (int i = 0; i < 8; ++i) {
 		for (int j = 0; j < 8; ++j) {
-			std::print("{} ", board_[i][j]->repr());
+			if (board_[i][j] != nullptr) {
+				std::println("{}", board_[i][j]->repr());
+			}
+			else {
+				std::println("{},{} is empty.", i, j);
+			}
 		}
 	}
 }

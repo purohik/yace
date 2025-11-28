@@ -11,7 +11,15 @@ Piece::Piece(Side side,
 }
 
 std::string Piece::repr() const {
-	return this->type_ + "(" + std::to_string(side_) + ")";
+	return std::to_string(this->type_)
+		+ "("
+		+ std::to_string(side_)
+		+ ") @ "
+		+ std::to_string(index_.first)
+		+ ", "
+		+ std::to_string(index_.second)
+		+ " / "
+		+ pgn_position_;
 }
 
 std::string Piece::to_pgn() {
@@ -19,5 +27,5 @@ std::string Piece::to_pgn() {
 }
 
 std::pair<int, int> Piece::to_index() {
-	return std::make_pair<int, int>(1, 1);
+	return std::make_pair(1, 1);
 }

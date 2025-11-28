@@ -1,6 +1,3 @@
-#ifndef YACE_PIECES_H
-#define YACE_PIECES_H
-
 enum PieceType {
 	PAWN,
 	ROOK,
@@ -14,4 +11,3 @@ enum Side {
 	BLACK,
 	WHITE,
 };
-#endif //YACE_PIECES_H
