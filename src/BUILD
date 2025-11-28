@@ -1,26 +1,30 @@
-STRICT_OPTS = [
+STRICT_COPTS = [
     "-std=c++23",
     "-O2",
     "-Wall",
-    "-Wextra",
 ]
-
-cc_library(
-    name = "game_core",
-    copts = STRICT_COPTS,
-    srcs = [],
-    hdrs = [],
-)
 
 cc_binary(
     name = "main",
+    srcs = [
+        "main.cpp",
+    ],
     copts = STRICT_COPTS,
-    srcs = ["main.cpp"],
-    deps = [],
+    deps = [
+        ":game",
+    ],
 )
 
 cc_library(
     name = "game",
-    srcs = ["game/Board.cpp"],
-    hdrs = ["game/Board.h"],
+    srcs = [
+        "game/Board.cpp",
+				"game/Piece.cpp",
+    ],
+    hdrs = [
+        "game/Board.h",
+        "game/Constants.h",
+        "game/Piece.h",
+    ],
+    copts = STRICT_COPTS,
 )

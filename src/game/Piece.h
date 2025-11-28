@@ -1,26 +1,23 @@
-//
-// Created by puro on 27/11/25.
-//
 #pragma once
 
 #include <iostream>
 #include <utility>
 
 #include "Constants.h"
-#ifndef YACE_PIECE_H
-#define YACE_PIECE_H
 
 class Piece {
-    Side side_;
-    std::string type_;
-    std::pair<int, int> position_;
+	Side side_;
+	PieceType type_;
+	std::pair<int, int> index_;
+	std::string pgn_position_;
 
 public:
-    Piece() = default;
+	Piece(Side side,
+		PieceType type,
+		std::pair<int, int> index,
+		std::string position);
 
-    std::string repr() const {
-         return this->type_ + "(" + std::to_string(side_) + ")";
-    }
+	std::string repr() const;
+	std::string to_pgn();
+	std::pair<int, int> to_index();
 };
-
-#endif //YACE_PIECE_H

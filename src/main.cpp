@@ -1,6 +1,10 @@
-#include <iostream>
+#include <print>
+#include "game/Board.h"
 
 int main() {
-    std::cout << "Hello World!\n";
-    return 0;
+	std::string game = "yace";
+	std::println("Hello World, {}", game);
+	Board board;
+	board.debug();
+	return 0;
 }
