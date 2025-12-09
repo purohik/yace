@@ -3,6 +3,6 @@
 
 int main() {
 	Board board;
-	board.print_board();
+	board.pretty_print();
 	return 0;
 }

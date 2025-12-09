@@ -1,6 +1,6 @@
 #pragma once
 
-#include <iostream>
+#include <string>
 #include <utility>
 
 #include "Constants.h"
@@ -18,6 +18,7 @@ public:
 		std::string position);
 
 	std::string repr() const;
+	char notation();
 	std::string to_pgn();
 	std::pair<int, int> to_index();
 };

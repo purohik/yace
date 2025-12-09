@@ -1,6 +1,6 @@
 #include "Board.h"
 
-#include <iostream>
+#include <string>
 #include <memory>
 #include <utility>
 #include <print>
@@ -114,29 +114,29 @@ void Board::initialize_pieces() {
 		std::make_pair(7, 5),
 		"F8");
 
-	// queens
+	// kings
 	board_[0][3] = std::make_shared<Piece>(
 		Side::WHITE,
-		PieceType::QUEEN,
+		PieceType::KING,
 		std::make_pair(0, 3),
 		"D1");
 
 	board_[7][3] = std::make_shared<Piece>(
 		Side::BLACK,
-		PieceType::QUEEN,
+		PieceType::KING,
 		std::make_pair(7, 3),
 		"D8");
 
-	// kings
+	// queens
 	board_[0][4] = std::make_shared<Piece>(
 		Side::WHITE,
-		PieceType::KING,
+		PieceType::QUEEN,
 		std::make_pair(0, 4),
 		"E1");
 
 	board_[7][4] = std::make_shared<Piece>(
 		Side::BLACK,
-		PieceType::KING,
+		PieceType::QUEEN,
 		std::make_pair(7, 4),
 		"E8");
 }
@@ -154,3 +154,27 @@ void Board::print_board() {
 		}
 	}
 }
+
+void Board::pretty_print() {
+	std::print("    ");
+	for (int i = 0; i < 8; ++i) {
+		std::print(" {} ", static_cast<char>('A' + i));
+	}
+	std::println();
+	std::println();
+	for (int i = 0; i < 8; ++i) {
+		for (int j = 0; j < 8; ++j) {
+			if (j == 0) {
+				std::print("{}   ", (i + 1));
+			}
+			if (board_[i][j] != nullptr) {
+				std::print(" {} ", board_[i][j]->notation());
+			}
+			else {
+				std::print(" . ");
+			}
+		}
+		std::println();
+	}
+}
+

@@ -22,6 +22,10 @@ std::string Piece::repr() const {
 		+ pgn_position_;
 }
 
+char Piece::notation() {
+	return this->side_ == Side::WHITE ? NOTATION[this->type_] : std::tolower(NOTATION[this->type_]);
+}
+
 std::string Piece::to_pgn() {
 	return "";
 }
